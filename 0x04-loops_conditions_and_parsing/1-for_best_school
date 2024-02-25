@@ -2,6 +2,7 @@
 # a script that uses the for loop to print Best School ten times"
 iterations=10
 
-for ((i=1; i<=iterations; i++)); do
+for ((i=1; i<=iterations; i++))
+do
 	echo "Best School"
 done
