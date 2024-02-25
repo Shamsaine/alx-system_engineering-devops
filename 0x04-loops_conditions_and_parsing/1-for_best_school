@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# a script that uses the for loop to print Best School ten times"
 
 iterations=10
 
