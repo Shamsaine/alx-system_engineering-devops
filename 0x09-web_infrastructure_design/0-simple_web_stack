@@ -1,0 +1,33 @@
+https://imgur.com/gallery/GoJQRXQ
+
+
+What is a server
+	A server is a computer or a software program that provides certain services or functionalities to other computers or devices automatically or upon request.
+
+What is the role of the domain name
+	The domain name is another name given to an ip address of a website to make it human readable and easy to remember.
+
+What type of DNS record www is in www.foobar.com
+	Its a CNAME record
+ 
+What is the role of the web server
+	a web server in simple terms is a server that serves hosts websites and serve web pages upon recieving an http or other forms of web request
+
+What is the role of the application server
+	It executes the application logic and processes business rules for we application. 
+
+What is the role of the database
+	The database stores, organizes and manages data used by applications and services.
+
+What is the server using to communicate with the computer of the user requesting the website 
+	The server and the computer communicate using the hypertext transfer protocol (HTTP) or the secure version (HTTPS).
+
+
+SPOF
+	single point of failure is a weakness in the system that causes the entire system to shutdown or fail if there is failure at a single point in the infrastructure. the way the system is structured provides no alternative or back up and as a ressult has no fault tolerance.
+
+Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+	This is because the infrastructure has a single server which has to be shut down or restarted during maintenance down time can not be avoid and continuous availability is interrupted. This is a huge problem for applications that need to run at all times.
+
+Cannot scale if too much incoming traffic
+	this happens due to the lack of a load balancer to distribute the traffic efficiently.
