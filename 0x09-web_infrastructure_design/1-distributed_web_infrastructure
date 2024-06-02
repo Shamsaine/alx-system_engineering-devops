@@ -1,1 +1,30 @@
 https://imgur.com/gallery/a3zLBLI 
+
+
+Here’s an explanation for the web infrastructure design:
+
+Two Servers: Adding two servers provides redundancy and load distribution. If one server fails, the other can take over, ensuring high availability.
+Web Server (Nginx): Nginx is used as the web server because of its high performance, stability, and low memory usage. It serves static content and can also act as a reverse proxy.
+Application Server: This server runs the application logic. It processes dynamic content by running scripts or serving applications written in languages like Python, Ruby, etc.
+Load-balancer (HAproxy): HAproxy distributes traffic across the servers to ensure no single server becomes a bottleneck. It improves the overall performance and reliability of the system.
+Application Files: These are the codebase for your application. They include all the necessary files to run the application on the application server.
+Database (MySQL): MySQL stores application data. It’s a relational database management system known for its reliability and ease of use.
+
+Active-Active vs. Active-Passive:
+    - Active-Active: Both servers are handling traffic simultaneously, providing high availability
+and load balancing.
+    -Active-Passive: One server is active and handles traffic, while the other is on standby
+in case the active server fails.
+Primary-Replica Database Cluster:
+    - Primary Node: The primary node handles all write operations and is the source of truth 
+for the data.
+    - Replica Node: The replica node syncs with the primary to create a copy of the data. 
+It can handle read operations to distribute the load.
+
+
+- SPOF (Single Point of Failure): If the load balancer fails,
+the entire system could become inaccessible.
+- Security Issues: Without a firewall or HTTPS, 
+the system is vulnerable to attacks and data interception.
+- No Monitoring: Without monitoring, it’s difficult to detect
+and respond to issues proactively, which can lead to downtime.
