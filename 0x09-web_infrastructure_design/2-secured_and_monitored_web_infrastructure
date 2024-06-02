@@ -1,0 +1,21 @@
+
+
+
+Three Firewalls:
+  Firewalls are added to establish a barrier between your internal network and incoming traffic from external sources (such as the internet) to block malicious traffic like viruses and hackers.
+SSL Certificate: 
+  An SSL certificate is used to serve www.foobar.com over HTTPS, which encrypts the data exchanged between the user’s browser and the web server, enhancing security and protecting sensitive information.
+Three Monitoring Clients:
+  Monitoring clients are added to collect and send data to monitoring services like Sumologic. They help in tracking the health and performance of the infrastructure.
+
+Specifics:
+    Firewalls: They protect the servers from unauthorized access and can be configured to permit or deny data packets based on a set of security rules.
+    HTTPS: Serving traffic over HTTPS ensures that all communication is encrypted, which secures data from eavesdropping and tampering.
+    Monitoring: It’s used to continuously observe the system’s operation, so that any problems can be identified and addressed promptly. It helps in maintaining system health and performance.
+    Data Collection: Monitoring tools collect data such as logs, metrics, and events, which can be analyzed to gain insights into the system’s performance and to detect anomalies.
+    Monitoring Web Server QPS: To monitor your web server’s Queries Per Second (QPS), you can configure the monitoring tool to track the number of requests that the web server processes in a second.
+Infrastructure Issues:
+
+SSL Termination at Load Balancer: Terminating SSL at the load balancer can introduce a single point of decryption, where encrypted traffic is converted to plain text, potentially exposing it to security vulnerabilities.
+Single MySQL Write Server: Having only one MySQL server capable of accepting writes can lead to a bottleneck and poses a risk of data loss if the server goes down.
+Identical Server Components: Having servers with all the same components (database, web server, and application server) might lead to resource contention and does not allow for specialized configurations that could optimize performance for each component.
