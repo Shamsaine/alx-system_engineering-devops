@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #this script is used to fix apache server
 # With help of Docker
 sudo service apache2 start
