@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displays current running processes containing 'bash' word in a user oriented format
 
-pgrep -faux "bash"
+ps -faux | grep "bash"
