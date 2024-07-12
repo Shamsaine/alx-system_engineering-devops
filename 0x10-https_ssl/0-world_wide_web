@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Function to get subdomain information
+get_subdomain_info() {
+  local subdomain=$1
+  local domain=$2
+
+  # Use dig to get the DNS record
+  dig_output=$(dig "${subdomain}.${domain}" +short)
+
+  if [ -z "$dig_output" ]; then
+    echo "The subdomain ${subdomain} does not exist."
+    return
+  fi
+
+  # Extract record type and destination using awk
+  record_type=$(echo "$dig_output" | awk '/^;/ {next} /^[0-9]+/ {print $4}' | head -n 1)
+  destination=$(echo "$dig_output" | awk '/^;/ {next} /^[0-9]+/ {print $5}' | head -n 1)
+
+  echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
+}
+
+# Main script logic
+main() {
+  local domain=$1
+  local specific_subdomain=$2
+
+  if [ -z "$domain" ]; then
+    echo "Domain parameter is mandatory"
+    exit 1
+  fi
+
+  if [ -n "$specific_subdomain" ]; then
+    get_subdomain_info "$specific_subdomain" "$domain"
+  else
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    for subdomain in "${subdomains[@]}"; do
+      get_subdomain_info "$subdomain" "$domain"
+    done
+  fi
+}
+
+# Execute main function with arguments
+main "$@"
+
