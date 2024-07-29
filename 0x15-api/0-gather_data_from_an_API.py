@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """script that fetches info about a given employee's ID using an api"""
-
 import requests
 import sys
 
