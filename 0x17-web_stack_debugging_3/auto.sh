@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-# Check if a commit message is provided as an argument
-if [ -z "$1" ]; then
+# Prompt the user for a commit message
+read -p "Enter commit message: " commit_message
+
+# If the user doesn't provide a message, use the default
+if [ -z "$commit_message" ]; then
   commit_message="added newfiles"
-else
-  commit_message="$1"
 fi
 
 # Add, commit, and push changes
 git add .
 git commit -m "$commit_message"
 git push
+
